@@ -1,0 +1,22 @@
+{
+  "apps": [
+    {
+      "name": "api",
+      "script": "./build/dist/server.js"
+    }
+  ],
+  "deploy": {
+    "production": {
+      "user": "git",
+      "host": "138.68.14.104",
+      "ref" : "origin/master",
+      "repo": "git@github.com:rojobuffalo/api.git",
+      "path": "/srv/repo/api.git",
+      "pre-deploy-local" : "echo 'Preparing to deploy to production...'",
+      "post-deploy": "npm install ; npm run build ; pm2 startOrRestart ecosystem.json --env production",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  }
+}
