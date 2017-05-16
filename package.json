@@ -10,7 +10,8 @@
   "main": "gulpfile.babel.js",
   "scripts": {
     "setup": "cp -n .env.example .env || true",
-    "dev": "gulp",
+    "rest": "postgrest ./postgrest.conf",
+    "graphql": "gulp",
     "eslint": "eslint ./src",
     "test": "JWT_PRIVATE_KEY=foo NODE_ENV=test ./node_modules/mocha/bin/_mocha --opts ./spec/mocha.opts",
     "build": "rimraf build && gulp build",
