@@ -2,7 +2,7 @@
 
 [terra.farm][301]
 
-The Terrafarm API serves a GraphQL endpoint and other utilities.
+The Terrafarm API serves a REST endpoint and GraphQL endpoint for the Terrafarm Database.
 
 ## Contributing
 
@@ -33,13 +33,21 @@ npm run setup
 ```
 The setup script copies [/.env.example][101] to `/.env`. Missing values will need to be manually added.
 
+**Add notes on configuring postgrest**
+
 ## Running
 
-Start a local server:
+Start a local server for the REST endpoint:
 
 ```bash
-npm run dev
-open http://localhost:3001/graphql # GraphiQL endpoint for inspecting the schema
+npm run rest
+```
+
+Start a local server for the GraphQL endpoint:
+
+```bash
+npm run graphql
+open http://localhost:3003/graphiql # GraphiQL endpoint for inspecting the schema
 ```
 
 ## Other scripts
