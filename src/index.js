@@ -9,11 +9,10 @@ const {
   REVERSE_PROXY_PRIVATE_IP,
   PORT,
   DB_PORT,
-  JWT_PRIVATE_KEY,
+  // JWT_PRIVATE_KEY,
 } = process.env;
 /*
 const PATHS = {
-  public: path.join(__dirname, '/..', 'public'),
   schemaJson: path.join(__dirname, '/..', 'public', 'schema.json'),
   schemaGraphql: path.join(__dirname, '..', 'public', 'schema.graphql'),
 };
@@ -21,18 +20,19 @@ const PATHS = {
 const api = new Express();
 
 api.use(bodyParser.json());
-api.use(postgraphql(`postgres://${REVERSE_PROXY_PRIVATE_IP}:${DB_PORT}`, ['terrafarm'], {
+
+api.use(postgraphql(`postgres://${REVERSE_PROXY_PRIVATE_IP}:${DB_PORT}`, ['1'], {
   classicIds: true,
   // dynamicJson: true,
   graphiql: NODE_ENV !== 'production',
-  graphqlRoute: '/cards-graphql',
-  pgDefaultRole: 'postgraphql_anonymous',
-  jwtSecret: JWT_PRIVATE_KEY,
-  jwtPgTypeIdentifier: 'terrafarm.jwt_token',
+  graphqlRoute: '/graphql-api',
+  pgDefaultRole: 'chatbot_user',
+  // jwtSecret: JWT_PRIVATE_KEY,
+  // jwtPgTypeIdentifier: '"1".jwt_token',
   // exportJsonSchemaPath: PATHS.schemaJson,
   // exportGqlSchemaPath: PATHS.schemaGraphql,
 }));
 
 api.listen(PORT, () => {
-  console.log(`Terrafarm API listening at http://${PRIVATE_IP}:${PORT} 🌲`);
+  console.log(`Terrafarm GraphQL API listening at http://${PRIVATE_IP}:${PORT} 🌲`);
 });

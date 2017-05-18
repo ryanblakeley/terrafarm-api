@@ -2,7 +2,7 @@
   "name": "terrafarm-api",
   "private": true,
   "version": "3.0.0-a1",
-  "description": "The Terrafarm API serves a REST endpoint and other utilities.",
+  "description": "The Terrafarm API serves a GraphQL endpoint and other utilities.",
   "repository": "rojobuffalo/terrafarm-api",
   "author": "rojobuffalo",
   "license": "Creative Commons BY-NC-ND 3.0",
@@ -10,8 +10,8 @@
   "main": "gulpfile.babel.js",
   "scripts": {
     "setup": "cp -n .env.example .env || true",
-    "rest": "postgrest ./postgrest.conf",
-    "graphql": "gulp",
+    "dev": "gulp",
+    "dev-rest": "postgrest ./postgrest.conf",
     "eslint": "eslint ./src",
     "test": "JWT_PRIVATE_KEY=foo NODE_ENV=test ./node_modules/mocha/bin/_mocha --opts ./spec/mocha.opts",
     "build": "rimraf build && gulp build",
@@ -25,8 +25,9 @@
     "npm": "3.10.10"
   },
   "dependencies": {
-    "body-parser": "^1.17.1",
-    "express": "^4.15.2"
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "postgraphql": "^3.2.0"
   },
   "devDependencies": {
     "babel": "^6.23.0",

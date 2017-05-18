@@ -2,7 +2,7 @@
 
 [terra.farm][301]
 
-The Terrafarm API serves a REST endpoint and GraphQL endpoint for the Terrafarm Database.
+The Terrafarm API serves a GraphQL endpoint for the Terrafarm Database.
 
 ## Contributing
 
@@ -27,27 +27,31 @@ Make sure you followed the installation instructions for terrafarm-db first to e
 Then:
 
 ```bash
-brew install postgrest
 npm install
 npm run setup
 ```
 The setup script copies [/.env.example][101] to `/.env`. Missing values will need to be manually added.
 
-**Add notes on configuring postgrest**
-
-## Running
-
-Start a local server for the REST endpoint:
+Currently, we're using a GraphQL endpoint rather than a REST endpoint. But if you want to do something with a REST endpoint, install and run `postgrest`.
 
 ```bash
-npm run rest
+brew install postgrest
+postgrest ./postgrest.conf
 ```
+
+## Running
 
 Start a local server for the GraphQL endpoint:
 
 ```bash
-npm run graphql
-open http://localhost:3003/graphiql # GraphiQL endpoint for inspecting the schema
+npm run dev
+open http://localhost:3001/graphiql # GraphiQL endpoint for inspecting the schema
+```
+
+Start a local server for the REST endpoint:
+
+```bash
+npm run dev-rest
 ```
 
 ## Other scripts
@@ -86,7 +90,7 @@ webpack.production.config
 
 ## License
 
-Copyright (c) 2016 Terrafarm LLC  
+Copyright (c) 2017 Terrafarm LLC  
 [Creative Commons BY-NC-ND 3.0][400]  
 [Legal Code][100]  
 [Acknowledgements][204]
