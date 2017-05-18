@@ -1,0 +1,8 @@
+{
+  "presets": ["airbnb"],
+  "plugins": [
+    ["module-resolver", {
+      "root": ["./src"]
+    }]
+  ]
+}
