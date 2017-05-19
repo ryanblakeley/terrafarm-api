@@ -1,7 +1,7 @@
 {
   "name": "terrafarm-api",
   "private": true,
-  "version": "3.0.0-a1",
+  "version": "3.0.0-a2",
   "description": "The Terrafarm API serves a GraphQL endpoint and other utilities.",
   "repository": "rojobuffalo/terrafarm-api",
   "author": "rojobuffalo",
