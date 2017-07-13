@@ -2,7 +2,7 @@
 
 [terra.farm][301]
 
-The Terrafarm API serves a GraphQL endpoint for the Terrafarm Database.
+The Terrafarm API serves a GraphQL endpoint and other utilities.
 
 ## Contributing
 
