@@ -1,6 +1,5 @@
 import webpack from 'webpack';
 import path from 'path';
-import validate from 'webpack-validator';
 import env from 'gulp-env';
 
 if (!process.env.PRIVATE_IP) {
@@ -41,8 +40,11 @@ const config = {
   },
   externals: /^[a-z\-0-9]+$/,
   plugins: [
-    new webpack.BannerPlugin('require("source-map-support").install();',
-      {raw: true, entryOnly: false}),
+    new webpack.BannerPlugin({
+      banner: 'require("source-map-support").install();',
+      raw: true,
+      entryOnly: false,
+    }),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(NODE_ENV),
@@ -65,4 +67,4 @@ const config = {
   },
 };
 
-export default validate(config, { quiet: true });
+export default config;

@@ -27,6 +27,7 @@ api.use(postgraphql(`postgres://${REVERSE_PROXY_PRIVATE_IP}:${DB_PORT}`, ['1'], 
   graphqlRoute: '/graphql-api',
   pgDefaultRole: 'clerk',
   jwtSecret: JWT_PRIVATE_KEY,
+  jwtPgTypeIdentifier: '"1".jwt_token',
   exportJsonSchemaPath: PATHS.schemaJson,
   exportGqlSchemaPath: PATHS.schemaGraphql,
 }));
