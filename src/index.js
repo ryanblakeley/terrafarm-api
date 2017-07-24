@@ -9,7 +9,7 @@ const {
   REVERSE_PROXY_PRIVATE_IP,
   PORT,
   DB_PORT,
-  JWT_PRIVATE_KEY,
+  // JWT_PRIVATE_KEY,
 } = process.env;
 
 const PATHS = {
@@ -26,8 +26,8 @@ api.use(postgraphql(`postgres://${REVERSE_PROXY_PRIVATE_IP}:${DB_PORT}`, ['1'], 
   graphiql: NODE_ENV !== 'production',
   graphqlRoute: '/graphql-api',
   pgDefaultRole: 'clerk',
-  jwtSecret: JWT_PRIVATE_KEY,
-  jwtPgTypeIdentifier: '"1".jwt_token',
+  // jwtSecret: JWT_PRIVATE_KEY,
+  // jwtPgTypeIdentifier: '"1".jwt_token',
   exportJsonSchemaPath: PATHS.schemaJson,
   exportGqlSchemaPath: PATHS.schemaGraphql,
 }));
