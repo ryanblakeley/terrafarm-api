@@ -22,6 +22,7 @@ const api = new Express();
 api.use(bodyParser.json());
 
 api.use(postgraphql(`postgres://${REVERSE_PROXY_PRIVATE_IP}:${DB_PORT}`, ['1'], {
+  classicIds: true,
   graphiql: NODE_ENV !== 'production',
   graphqlRoute: '/graphql-api',
   pgDefaultRole: 'anonymous',
