@@ -9,6 +9,8 @@ const {
   REVERSE_PROXY_PRIVATE_IP,
   PORT,
   DB_PORT,
+  DB_USER,
+  DB_PASSWORD,
   JWT_PRIVATE_KEY,
 } = process.env;
 
@@ -21,16 +23,20 @@ const api = new Express();
 
 api.use(bodyParser.json());
 
-api.use(postgraphql(`postgres://${REVERSE_PROXY_PRIVATE_IP}:${DB_PORT}`, ['1'], {
-  classicIds: true,
-  graphiql: NODE_ENV !== 'production',
-  graphqlRoute: '/graphql-api',
-  pgDefaultRole: 'anonymous',
-  jwtSecret: JWT_PRIVATE_KEY,
-  jwtPgTypeIdentifier: '"1".jwt_token',
-  exportJsonSchemaPath: PATHS.schemaJson,
-  exportGqlSchemaPath: PATHS.schemaGraphql,
-}));
+api.use(postgraphql(
+  `postgres://${DB_USER}:${DB_PASSWORD}@${REVERSE_PROXY_PRIVATE_IP}:${DB_PORT}`,
+  ['1'],
+  {
+    classicIds: true,
+    graphiql: NODE_ENV !== 'production',
+    graphqlRoute: '/graphql-api',
+    pgDefaultRole: 'anonymous',
+    jwtSecret: JWT_PRIVATE_KEY,
+    jwtPgTypeIdentifier: '"1".jwt_token',
+    exportJsonSchemaPath: PATHS.schemaJson,
+    exportGqlSchemaPath: PATHS.schemaGraphql,
+  },
+));
 
 api.listen(PORT, () => {
   console.log(`Terrafarm GraphQL API listening at http://${PRIVATE_IP}:${PORT} 🌲`);

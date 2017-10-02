@@ -12,6 +12,8 @@ const {
   REVERSE_PROXY_PRIVATE_IP,
   PORT,
   DB_PORT,
+  DB_USER,
+  DB_PASSWORD,
   JWT_PRIVATE_KEY,
 } = process.env;
 
@@ -52,6 +54,8 @@ const config = {
         REVERSE_PROXY_PRIVATE_IP: JSON.stringify(REVERSE_PROXY_PRIVATE_IP),
         PORT: Number(PORT),
         DB_PORT: Number(DB_PORT),
+        DB_USER: JSON.stringify(DB_USER),
+        DB_PASSWORD: JSON.stringify(DB_PASSWORD),
         JWT_PRIVATE_KEY: JSON.stringify(JWT_PRIVATE_KEY),
       },
     }),

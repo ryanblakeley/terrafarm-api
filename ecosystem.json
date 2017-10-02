@@ -8,9 +8,9 @@
   "deploy": {
     "production": {
       "user": "git",
-      "host": "138.68.14.104",
+      "host": "138.197.206.155",
       "ref" : "origin/master",
-      "repo": "git@github.com:rojobuffalo/api.git",
+      "repo": "git@github.com:rojobuffalo/terrafarm-api.git",
       "path": "/srv/repo/api.git",
       "pre-deploy-local" : "echo 'Preparing to deploy to production...'",
       "post-deploy": "npm install ; npm run build ; pm2 startOrRestart ecosystem.json --env production",
