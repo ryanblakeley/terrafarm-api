@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "body-parser": "^1.17.2",
-    "express": "^4.15.3",
+    "express": "^4.15.5",
     "postgraphql": "^4.0.0-alpha2.12"
   },
   "devDependencies": {
@@ -44,7 +44,6 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.1.0",
-    "express": "^4.13.3",
     "fetch-everywhere": "^1.0.5",
     "gulp": "^3.9.1",
     "gulp-env": "^0.4.0",
